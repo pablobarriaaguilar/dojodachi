@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Fullness: @Context.Session.GetInt32("Fullness")  Happiness:@Context.Session.GetInt32("Happiness")    Meals:@Context.Session.GetInt32("Meals")   Energy:@Context.Session.GetInt32("Energy")  </h1>
+    <p>@Context.Session.GetString("mensaje").</p>
+   
+    @if(@Context.Session.GetString("comprobacion") =="ganaste" || @Context.Session.GetString("comprobacion") =="perdiste"  ){
+        <form asp-action="Reinicio" method="POST"><button> Reinicio</button></form>
+    }else{
+ <form asp-action="Feed" method="POST"><Button>Feed</Button></form> <form asp-action="Play"> <button>Play</button></form> <form asp-action="Work"><button>Work</button></form> <form asp-action="Sleep"><button>Sleep</button></form>
+    }
+
+</div>
